@@ -56,7 +56,7 @@ export default function VacationCalendar() {
 
     if (error) {
       console.error(error)
-      alert('휴가 정보를 불러오지 못했습니다. Supabase 설정을 확인해주세요.')
+      alert(`휴가 정보를 불러오지 못했습니다.\n\n오류 내용: ${error.message}\n오류 코드: ${error.code ?? '없음'}`)
       setEvents([])
     } else {
       setEvents(data ?? [])
@@ -101,7 +101,7 @@ export default function VacationCalendar() {
 
     if (error) {
       console.error(error)
-      alert('휴가 저장에 실패했습니다.')
+      alert(`휴가 저장에 실패했습니다.\n\n오류 내용: ${error.message}\n오류 코드: ${error.code ?? '없음'}`)
       return
     }
 
