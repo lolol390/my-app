@@ -1,4 +1,3 @@
-```tsx
 'use client'
 
 import {
@@ -56,13 +55,9 @@ export default function Calendar({
 
     title: event.title,
 
-    start: new Date(
-      `${event.start}T00:00:00`
-    ),
+    start: new Date(event.start + 'T00:00:00'),
 
-    end: new Date(
-      `${event.end || event.start}T23:59:59`
-    )
+    end: new Date((event.end || event.start) + 'T23:59:59')
   }))
 
   return (
@@ -100,4 +95,3 @@ export default function Calendar({
     </div>
   )
 }
-```
