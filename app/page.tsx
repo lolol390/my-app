@@ -13,6 +13,28 @@ const EMPLOYEE_LIST = [
   '정태진', '손지연', '오단비', '길남오', '김금표'
 ]
 
+// 인사관리에서 사용하는 근태/휴가 구분 항목입니다.
+// 화면의 선택값이 그대로 달력에 표시되며 Supabase에는 title로 저장됩니다.
+const VACATION_TYPES = [
+  '연차',
+  '오전반차(1/2)',
+  '오후반차(1/2)',
+  '대체휴가',
+  '노조활동',
+  '대휴(오전1/2)',
+  '대휴(오후1/2)',
+  '돌봄',
+  '돌봄/오전',
+  '돌봄/오후',
+  '감정노동휴가',
+  '건강검진휴가(오전)',
+  '건강검진휴가(오후)',
+  '외출(오전/08:30~10:30)',
+  '외출(오전/11:00~13:00)',
+  '외출(오후/14:00~16:00)',
+  '외출(오후/15:30~17:30)',
+] as const
+
 interface VacationEvent {
   id: string
   title: string
@@ -36,7 +58,7 @@ export default function VacationCalendar() {
   const [selectedEmployee, setSelectedEmployee] = useState(EMPLOYEE_LIST[0])
   const [startDate, setStartDate] = useState('')
   const [endDate, setEndDate] = useState('')
-  const [vacationType, setVacationType] = useState('휴가')
+  const [vacationType, setVacationType] = useState('연차')
 
   useEffect(() => {
     setMounted(true)
@@ -180,7 +202,7 @@ export default function VacationCalendar() {
         }}>
           <div>
             <label style={{ display: 'block', marginBottom: '5px', fontWeight: 'bold' }}>
-              직원 이름
+              직원
             </label>
             <select
               value={selectedEmployee}
@@ -202,9 +224,9 @@ export default function VacationCalendar() {
               onChange={(e) => setVacationType(e.target.value)}
               style={{ width: '100%', padding: '8px', borderRadius: '6px', border: '1px solid #d1d5db' }}
             >
-              <option value="휴가">휴가</option>
-              <option value="연차">연차</option>
-              <option value="반차">반차</option>
+              {VACATION_TYPES.map((type) => (
+                <option key={type} value={type}>{type}</option>
+              ))}
             </select>
           </div>
 

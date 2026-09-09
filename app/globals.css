@@ -24,3 +24,112 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 휴가 달력 추가 스타일 */
+.vacation-calendar .rbc-month-view {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.vacation-calendar .rbc-header {
+  padding: 10px 4px;
+  font-weight: 800;
+  background: #f8fafc;
+}
+
+/* 일요일/토요일 요일 이름을 빨간색으로 표시 */
+.vacation-calendar .rbc-header:nth-child(1),
+.vacation-calendar .rbc-header:nth-child(7) {
+  color: #dc2626;
+}
+
+.vacation-calendar .rbc-date-cell {
+  padding: 5px 7px;
+}
+
+.vacation-calendar .rbc-event {
+  border-radius: 5px;
+  padding: 2px 5px;
+}
+
+.employee-color-legend,
+.holiday-list {
+  margin-top: 18px;
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.employee-color-legend h3,
+.holiday-list h3 {
+  margin: 0 0 12px;
+}
+
+.employee-color-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px 14px;
+}
+
+.employee-color-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.employee-color-dot {
+  width: 11px;
+  height: 11px;
+  border-radius: 999px;
+  flex: 0 0 auto;
+}
+
+.employee-number {
+  color: #94a3b8;
+  font-size: 11px;
+  width: 18px;
+}
+
+.holiday-list {
+  background: #fff7f7;
+  border-color: #fecaca;
+}
+
+.holiday-list h3 {
+  color: #b91c1c;
+}
+
+.holiday-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 7px 14px;
+}
+
+.holiday-item {
+  display: flex;
+  gap: 7px;
+  align-items: center;
+  font-size: 13px;
+  color: #7f1d1d;
+}
+
+.holiday-item strong {
+  white-space: nowrap;
+}
+
+@media (max-width: 800px) {
+  .employee-color-grid,
+  .holiday-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .employee-color-grid,
+  .holiday-grid {
+    grid-template-columns: 1fr;
+  }
+}

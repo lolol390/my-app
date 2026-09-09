@@ -1,48 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 검사실 직원 휴가 관리 캘린더
 
-## Getting Started
+Next.js + React Big Calendar + Supabase 기반의 공유 휴가 달력입니다.
 
-First, run the development server:
+## 포함 기능
+- 직원 20명
+- 직원별 고정 색상
+- 토/일 빨간색 표시
+- 2026년 대한민국 공휴일 표시
+- 인사관리용 구분 42개 항목 + 기본 `휴가`
+- Supabase 공유 저장/삭제
+- 모바일 대응
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 구분 항목
+휴가, [01] 연차, [02] 생리휴가, [03] 오전반차(1/2), [04] 오후반차(1/2), [05] 공가, [06] 병가, [07] 대체휴가, [08] 출산휴가, [09] 청원휴가, [0a] 조퇴, [0b] 특별휴가, [0c] 포상휴가, [0d] 유산·사산휴가, [0e] 노조활동(교섭·회의), [10] 산전검진휴가, [11] 대휴(오전1/2), [12] 대휴(오후1/2), [13] 무급휴가(돌봄), [14] 무급휴가(돌봄)/오전, [15] 무급휴가(돌봄)/오후, [16] 무급휴가, [17] 유급휴가(돌봄), [18] 유급휴가(돌봄)/오전, [19] 유급휴가(돌봄)/오후, [20] 산재/병가, [21] 병가결근(남임), [22] 공가(오전), [23] 공가(오후), [24] 감염도농휴가, [27] 유아단축휴가, [28] 년차(공통보건의)/1시간, [29] 년차(공통보건의)/2시간, [30] 년차(공통보건의)/3시간, [31] 건강검진휴가(오전), [32] 건강검진휴가(오후), [33] 청원휴가(남임), [34] 산전휴가, [35] 장기자택특별휴가, [36] 외출(오전/08:30~10:30), [37] 외출(오전/11:00~13:00), [38] 외출(오후/14:00~16:00), [39] 외출(오후/15:30~17:30), [40] 임금피크제 휴가, [41] 무급휴가(오전), [42] 무급휴가(오후)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 배포
+Vercel 환경변수는 기존과 동일하게 사용합니다.
+- NEXT_PUBLIC_SUPABASE_URL
+- NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-
-
-## Supabase 저장 기능 설정
-
-1. Supabase에서 프로젝트를 만든 뒤 SQL Editor에서 `supabase/setup.sql` 전체를 실행합니다.
-2. Supabase Project Settings > API에서 Project URL과 Publishable key를 확인합니다.
-3. Vercel 프로젝트 Settings > Environment Variables에 아래 두 값을 추가합니다.
-   - `NEXT_PUBLIC_SUPABASE_URL`
-   - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
-4. Vercel에서 Redeploy 합니다.
-
-이제 휴가 데이터는 브라우저 localStorage가 아니라 Supabase에 저장되어 새로고침하거나 다른 사람이 접속해도 같은 데이터를 볼 수 있습니다.
+환경변수를 변경했다면 Vercel에서 재배포하세요.
