@@ -3,7 +3,6 @@
 import {
   Calendar as BigCalendar,
   dateFnsLocalizer,
-  type EventProps,
 } from 'react-big-calendar'
 import {
   format,
@@ -197,7 +196,7 @@ export default function Calendar({ events }: CalendarProps) {
         startAccessor="start"
         endAccessor="end"
         style={{ height: '620px' }}
-        eventPropGetter={eventStyleGetter as EventProps<CalendarEvent>['eventPropGetter']}
+        eventPropGetter={eventStyleGetter}
         dayPropGetter={dayPropGetter}
         components={{
           month: {
